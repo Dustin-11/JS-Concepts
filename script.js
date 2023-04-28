@@ -56,3 +56,28 @@ subtract(9, 2);
 const x = () => console.log("hi");
 x();
 
+/* Destructuring purpose is to unpack:
+1. values from arrays (even one returned by a function)
+2. properties from objects
+into distinct variables */
+
+let arr = ["pink", "purple", "yelllow", "orange"];
+let [one, two, three, four] = arr;
+console.log(one, two, three, four);
+
+let a = () => {
+    return ["chevy", "ford", "gmc"];
+}
+let [maker1, , maker2] = a();
+console.log(maker1, maker2);
+
+// Destructuring objects is first used to break properties down into individual variables
+
+let obj = {
+    h: 100,
+    s: true
+}
+
+// Can reassign property names with the following syntax
+let { h:t, s:w } = obj;
+console.log(t, w);
