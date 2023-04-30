@@ -77,7 +77,51 @@ let obj = {
     h: 100,
     s: true
 }
+let { h, s } = obj;
+console.log(h,s);
 
 // Can reassign property names with the following syntax
 let { h:t, s:w } = obj;
 console.log(t, w);
+
+/* Before ES6 the way to pass a variable number of arguments to a function
+ and to access the parameters passed to the function, use the argument object */
+
+ /*function containsAll(arr) {
+    for (let l=1; l<arguments.length; l++) {
+        let num = arguments[l];
+        if (arr.indexOf(num) === -1) {
+            return false;
+        }
+    }
+    return true;
+ }
+ let k = [2, 4, 6, 8];
+ console.log(containsAll(k, 2, 4, 6));*/
+
+// ES6 Rest Parameter
+
+function containsAl(arr, ...nums) {
+    for (let num of nums) {
+       // console.log(arr);
+       // console.log(...nums);
+        if (arr.indexOf(num) === -1) {
+            return false;
+        }
+    }
+    
+    return true;
+}
+
+let z = [2, 4, 6, 8];
+console.log(containsAl(z, 2, 4, 6, 7));
+
+
+function Add(...input) {
+    let sum = 0;
+    for (i of input) {
+        sum += i;
+    }
+    return sum;
+}
+console.log(Add(2, 4, 6, 8));
